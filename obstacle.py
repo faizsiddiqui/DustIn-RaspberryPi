@@ -3,21 +3,23 @@ import time
 
 class Obstacle:
 
-	IR_PIN = 7
+	PIN_IR = 18
 
 	def __init__():
-		gpio.setmode(GPIO.BCM)
-		gpio.setup(IR_PIN, gpio.IN)
+		gpio.setwarnings(False)
+		gpio.setmode(gpio.BOARD)
+		gpio.setup(PIN_IR, gpio.IN)
 		time.sleep(2)
 
 	def detect():
 		try:
-			gpio.add_event_detect(PIR_PIN, gpio.RISING, callback=MOTION)
-			while 1:
-				time.sleep(100)
+			time.sleep(2)
+			while True:
+				if gpio.input(PIN_IR):
+					print "Motion Detected!"
+				time.sleep(1)
 		except KeyboardInterrupt:
-           print “ Quit”
-           gpio.cleanup()
+           print "Quit"
 
-	def callback(IR_PIN):
-		print “Motion Detected!”
+	def __del__(self):
+		gpio.cleanup()

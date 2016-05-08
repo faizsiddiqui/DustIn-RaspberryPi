@@ -8,12 +8,12 @@ import time
 
 class Distance:
 
-	PIN_GPIO_TRIGGER = 23
-	PIN_GPIO_ECHO    = 24
+	PIN_GPIO_TRIGGER = 38
+	PIN_GPIO_ECHO    = 40
 
 	def __init__(self):
 		gpio.setwarnings(False)
-		gpio.setmode(gpio.BCM)
+		gpio.setmode(gpio.BOARD)
 		gpio.setup(self.PIN_GPIO_TRIGGER,gpio.OUT) #trigger output
 		gpio.setup(self.PIN_GPIO_ECHO,gpio.IN) #echo input
 		gpio.output(self.PIN_GPIO_TRIGGER, False) #initialize trigger pin to low
@@ -23,10 +23,8 @@ class Distance:
 		time.sleep(0.00001)
 		gpio.output(self.PIN_GPIO_TRIGGER, False)
 		start = time.time()
-
 		while gpio.input(self.PIN_GPIO_ECHO)==0:
 			start = time.time()
-
 		while gpio.input(self.PIN_GPIO_ECHO)==1:
 			stop = time.time()
 
