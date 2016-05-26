@@ -9,12 +9,16 @@ class REST:
 
 	def __init__(self, baseURL, timeout):
 		self.baseURL = baseURL
-		self.headers = {'user-agent': 'DUSTIN/0.0.1', 'Content-Type': 'application/json'}
+		self.headers = {'user-agent': 'DUSTIN/0.0.1'}
 		self.timeout = timeout
 
-	def get(resource, headers):
-		try:
-		    response = requests.get(self.baseURL + resource, headers=headers, timeout=self.timeout)
+	def get(self, resource):
+		response = requests.get(self.baseURL + resource, headers=self.headers, timeout=self.timeout)
+		if response.status_code != 200:
+			raise ApiError('GET {} {}'.format(resource, response.status_code))
+		return response.json()
+		'''try:
+		    response = requests.get(self.baseURL + resource, headers=self.headers, timeout=self.timeout)
 			if response.status_code != 200:
 				raise ApiError('GET {} {}'.format(resource, response.status_code))
 			return response.json()
@@ -25,12 +29,15 @@ class REST:
 		except requests.exceptions.RequestException as e:
 		    print e
 		finally:
-			print "Exiting!"
-			sys.exit(1)
+			print "Exiting!"'''
 
-	def post(resource, data, headers):
-		try:
-		    response = requests.post(self.baseURL + resource, data=json.dumps(data), headers=headers, timeout=self.timeout)
+	def post(self, resource, data):
+		response = requests.post(self.baseURL + resource, data=data, headers=self.headers, timeout=self.timeout)
+		if response.status_code != 200:
+			raise ApiError('POST {} {}'.format(resource, response.status_code))
+		return response.json()
+		'''try:
+		    response = requests.post(self.baseURL + resource, data=data, headers=self.headers, timeout=self.timeout)
 			if response.status_code != 200:
 				raise ApiError('POST {} {}'.format(resource, response.status_code))
 			return response.json()
@@ -41,5 +48,4 @@ class REST:
 		except requests.exceptions.RequestException as e:
 		    print e
 		finally:
-			print "Exiting!"
-			sys.exit(1)
+			print "Exiting!"'''

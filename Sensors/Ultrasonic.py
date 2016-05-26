@@ -6,12 +6,11 @@
 import RPi.GPIO as gpio
 import time
 
-class Distance:
+class Ultrasonic:
 
-	PIN_GPIO_TRIGGER = 38
-	PIN_GPIO_ECHO    = 40
-
-	def __init__(self):
+	def __init__(self, PIN_GPIO_TRIGGER, PIN_GPIO_ECHO):
+		self.PIN_GPIO_TRIGGER = PIN_GPIO_TRIGGER
+		self.PIN_GPIO_ECHO = PIN_GPIO_ECHO
 		gpio.setwarnings(False)
 		gpio.setmode(gpio.BOARD)
 		gpio.setup(self.PIN_GPIO_TRIGGER,gpio.OUT) #trigger output

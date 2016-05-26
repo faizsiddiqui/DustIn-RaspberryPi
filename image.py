@@ -11,7 +11,7 @@ import urllib2
 from Camera import IPCamera as camera
 
 def main():
-    cam = camera.IPCamera('http://192.168.1.37:8080/video') #cam = Camera()
+    cam = camera.IPCamera('http://192.168.43.1:8080/video') #cam = Camera()
 
     while(cv2.waitKey(1)):
         original = cam.get_frame()

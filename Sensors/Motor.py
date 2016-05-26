@@ -8,12 +8,11 @@ import time
 
 class Motor:
 
-	PIN_MOTOR_ONE = 31
-	PIN_MOTOR_TWO = 33
-	PIN_MOTOR_THREE = 35
-	PIN_MOTOR_FOUR = 37
-
-	def __init__(self):
+	def __init__(self, PIN_MOTOR_ONE, PIN_MOTOR_TWO, PIN_MOTOR_THREE, PIN_MOTOR_FOUR):
+		self.PIN_MOTOR_ONE = PIN_MOTOR_ONE
+		self.PIN_MOTOR_TWO = PIN_MOTOR_TWO
+		self.PIN_MOTOR_THREE = PIN_MOTOR_THREE
+		self.PIN_MOTOR_FOUR = PIN_MOTOR_FOUR
 		gpio.setwarnings(False)
 		gpio.setmode(gpio.BOARD)
 		gpio.setup(self.PIN_MOTOR_ONE, gpio.OUT) #motor1

@@ -1,4 +1,10 @@
-import pyaudio
+from Audio import IPAudio as audio
+
+def main():
+	aud = audio.IPAudio('http://192.168.43.1:8080/audio.wav')
+
+
+'''import pyaudio
 import wave
 import urllib2
 
@@ -42,3 +48,4 @@ stream.stop_stream()
 stream.close()
 
 p.terminate()
+'''

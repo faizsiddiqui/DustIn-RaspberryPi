@@ -1,0 +1,46 @@
+{
+	"socket"	:	{
+		"status"	:	true,
+		"PORT"		:	8090,
+		"BACKLOG"	:	1
+	},
+
+	"web-service"	:	{
+		"status"	:	true,
+		"URL"		:	"http://localhost:81/DustIn/index.php/",
+		"timeout"	:	5,
+		"API"		: {
+			"location"	: 	"dustin/location",
+			"level"		:	"dustin/level"
+		}
+	},
+
+	"camera"	:	{
+		"status"	: "IP",
+		"IP"	:	{
+			"host"	:	"http://192.168.1.33",
+			"port"	: 	8080,
+			"url"	:	"/video"
+		}
+	},
+
+	"sensors" : {
+		"ultrasonic" : {
+			"status"	:	false,
+			"PIN_GPIO_TRIGGER"	: 38,
+			"PIN_GPIO_ECHO" : 40
+		},
+		"IR"	: {
+			"status"	: false,
+			"PIN_IR"	:	18
+		},
+		"motor"	:	{
+			"status"	: false,
+			"PIN_MOTOR_ONE" : 31,
+			"PIN_MOTOR_TWO" : 33,
+			"PIN_MOTOR_THREE" : 35,
+			"PIN_MOTOR_FOUR" : 37
+		}
+	}
+
+}
