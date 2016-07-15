@@ -17,7 +17,7 @@
 	},
 
 	"camera"	:	{
-		"status"	: "IP",
+		"status"	: "Camera",
 		"IP"	:	{
 			"host"	:	"http://192.168.1.34",
 			"port"	: 	8080,
